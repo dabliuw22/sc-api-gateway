@@ -1,3 +1,4 @@
+
 package com.leysoft.configuration;
 
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
@@ -10,19 +11,19 @@ import com.leysoft.filter.CustomPreZuulFilter;
 
 @Configuration
 public class AppConfiguration {
-	
-	@Bean
-	public CustomPreZuulFilter preFilter() {
-		return new CustomPreZuulFilter();
-	}
-	
-	@Bean
-	public CustomPostZuulFilter postFilter() {
-		return new CustomPostZuulFilter();
-	}
-	
-	@Bean
-	public FallbackProvider fallbackProvider() {
-		return new MicroOneFallbackProvider();
-	}
+
+    @Bean
+    public CustomPreZuulFilter preFilter() {
+        return new CustomPreZuulFilter();
+    }
+
+    @Bean
+    public CustomPostZuulFilter postFilter() {
+        return new CustomPostZuulFilter();
+    }
+
+    @Bean
+    public FallbackProvider fallbackProvider() {
+        return new MicroOneFallbackProvider();
+    }
 }

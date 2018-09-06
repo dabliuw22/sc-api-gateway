@@ -1,3 +1,4 @@
+
 package com.leysoft.beans;
 
 import java.io.ByteArrayInputStream;
@@ -15,48 +16,48 @@ import com.leysoft.dto.GreetingFallbackResponse;
 
 public class MicroOneFallbackProvider implements FallbackProvider {
 
-	@Override
-	public String getRoute() {
-		return "microservice-one";
-	}
+    @Override
+    public String getRoute() {
+        return "microservice-one";
+    }
 
-	@Override
-	public ClientHttpResponse fallbackResponse(String route, Throwable cause) {
-		return new ClientHttpResponse() {
-			
-			@Override
-			public HttpHeaders getHeaders() {
-				HttpHeaders headers = new HttpHeaders();
-				headers.setContentType(MediaType.APPLICATION_JSON);
-				return headers;
-			}
-			
-			@Override
-			public InputStream getBody() throws IOException {
-				GreetingFallbackResponse response = new GreetingFallbackResponse();
-				response.setMessage("Ocurrio un error");
-				return new ByteArrayInputStream(new ObjectMapper().writeValueAsBytes(response));
-			}
-			
-			@Override
-			public String getStatusText() throws IOException {
-				return "Ok";
-			}
-			
-			@Override
-			public HttpStatus getStatusCode() throws IOException {
-				return HttpStatus.OK;
-			}
-			
-			@Override
-			public int getRawStatusCode() throws IOException {
-				return 200;
-			}
-			
-			@Override
-			public void close() {
-				//Nada
-			}
-		};
-	}
+    @Override
+    public ClientHttpResponse fallbackResponse(String route, Throwable cause) {
+        return new ClientHttpResponse() {
+
+            @Override
+            public HttpHeaders getHeaders() {
+                HttpHeaders headers = new HttpHeaders();
+                headers.setContentType(MediaType.APPLICATION_JSON);
+                return headers;
+            }
+
+            @Override
+            public InputStream getBody() throws IOException {
+                GreetingFallbackResponse response = new GreetingFallbackResponse();
+                response.setMessage("Ocurrio un error");
+                return new ByteArrayInputStream(new ObjectMapper().writeValueAsBytes(response));
+            }
+
+            @Override
+            public String getStatusText() throws IOException {
+                return "Ok";
+            }
+
+            @Override
+            public HttpStatus getStatusCode() throws IOException {
+                return HttpStatus.OK;
+            }
+
+            @Override
+            public int getRawStatusCode() throws IOException {
+                return 200;
+            }
+
+            @Override
+            public void close() {
+                // Nada
+            }
+        };
+    }
 }

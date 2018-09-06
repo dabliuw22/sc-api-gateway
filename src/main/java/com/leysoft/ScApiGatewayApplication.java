@@ -1,3 +1,4 @@
+
 package com.leysoft;
 
 import org.springframework.boot.SpringApplication;
@@ -10,7 +11,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @SpringBootApplication
 public class ScApiGatewayApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ScApiGatewayApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ScApiGatewayApplication.class, args);
+    }
 }
