@@ -5,8 +5,8 @@ spring:
   application:
     name: api-gateway
 
-#zuul:
-  #prefix: /api
+zuul:
+  prefix: /api
   #strip-prefix: false
 
 eureka:

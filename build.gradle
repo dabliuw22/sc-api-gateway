@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.3.RELEASE'
+		springBootVersion = '2.1.4.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -23,20 +23,15 @@ repositories {
 	mavenCentral()
 }
 
-
-ext {
-	springCloudVersion = 'Finchley.RELEASE'
-}
+ext['springCloudVersion'] = 'Greenwich.RELEASE'
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	//compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
-	compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
-	//compile('org.springframework.cloud:spring-cloud-starter-sleuth')
-	//compile('org.springframework.cloud:spring-cloud-starter-zipkin')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	//testCompile('org.springframework.security:spring-security-test')
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
+	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+	//implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 dependencyManagement {
